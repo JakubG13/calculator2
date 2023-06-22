@@ -17,13 +17,33 @@ firstNumber += btn.textContent
 
 
 markBtns.forEach(btn => btn.addEventListener("click",()=>{
+   
+    if(firstNumber !== "" && secondNumber !== ""){
+        count()
+        mark = btn.textContent
+        firstNumber = screen.textContent
+        screen.textContent += mark
+        
+    } else if(firstNumber !== ""){
     mark = btn.textContent
     screen.textContent = firstNumber + mark
+   
+    } 
+         else
+{
+    mark = btn.textContent
+    screen.textContent = firstNumber + mark
+    }
     secondNumber = firstNumber
-    firstNumber = ""
+    firstNumber = "" 
+    console.log(mark) 
+    console.log(firstNumber)
+    console.log(secondNumber)
 }))
 
-document.querySelector(".calculator__btn--equal").addEventListener("click",()=>{
+
+
+const count = ()=>{
     if(mark === "+"){
 screen.textContent = secondNumber * 1 + firstNumber * 1
     }
@@ -36,4 +56,6 @@ screen.textContent = secondNumber * 1 + firstNumber * 1
     else if (mark === "*"){
         screen.textContent = secondNumber * 1 * firstNumber * 1
     }
-})
+}
+
+document.querySelector(".calculator__btn--equal").addEventListener("click",count)
