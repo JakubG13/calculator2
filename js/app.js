@@ -53,3 +53,13 @@ const count = () => {
 document
   .querySelector(".calculator__btn--equal")
   .addEventListener("click", count);
+
+document
+  .querySelector(".calculator__btn--clear")
+  .addEventListener("click", () => {
+    flag = true;
+    firstNumber = "";
+    secondNumber = "";
+    mark = "";
+    screen.textContent = 0;
+  });
