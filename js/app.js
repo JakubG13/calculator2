@@ -63,3 +63,11 @@ document
     mark = "";
     screen.textContent = 0;
   });
+
+document
+  .querySelector(".calculator__btn--remove")
+  .addEventListener("click", () => {
+    let text = screen.textContent;
+    text = text.substring(0, text.length - 1);
+    screen.textContent = text;
+  });
