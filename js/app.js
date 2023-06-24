@@ -5,20 +5,27 @@ let flag = true;
 let firstNumber = "";
 let secondNumber = "";
 let mark = "";
-
+let percent = false
+let text = screen.textContent 
+let anotherFlag = true
 numberBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
+
+    if(firstNumber !== "" && percent === true && anotherFlag){
+      return
+    } else {
     if (flag) {
       screen.textContent = "";
     }
     screen.textContent += btn.textContent;
     flag = false;
     firstNumber += btn.textContent;
-  })
+  }})
 );
 
 markBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
+    anotherFlag = false
     if (firstNumber !== "" && secondNumber !== "") {
       count();
       mark = btn.textContent;
@@ -28,7 +35,7 @@ markBtns.forEach((btn) =>
       firstNumber = "";
     } else if (firstNumber !== "") {
       mark = btn.textContent;
-      screen.textContent = firstNumber + mark;
+        screen.textContent = firstNumber + mark;
       secondNumber = firstNumber;
       firstNumber = "";
     } else {
@@ -39,6 +46,7 @@ markBtns.forEach((btn) =>
 );
 
 const count = () => {
+  percent = false
   if (firstNumber !== "" && secondNumber !== ""){
   if (mark === "+") {
     screen.textContent = secondNumber * 1 + firstNumber * 1;
@@ -65,6 +73,8 @@ document
     secondNumber = "";
     mark = "";
     screen.textContent = 0;
+    percent = false
+    anotherFlag = true
   });
 
 document
@@ -86,6 +96,11 @@ if(screen.textContent === ""){
   screen.textContent = 0
   flag = true
 }
+text = screen.textContent
+text = [...text]
+if(text.indexOf("%") === -1){
+percent = false
+}
   });
 
 
@@ -101,4 +116,21 @@ if(screen.textContent === ""){
     if(firstNumber !== "" && secondNumber !== ""){
       screen.textContent = secondNumber + mark + firstNumber
     }
+  })
+
+
+  
+  document.querySelector(".calculator__btn--percent").addEventListener("click",()=>{
+    anotherFlag = true
+if(percent === false)
+    {firstNumber += "%"
+    if(firstNumber !== ""){
+      screen.textContent = firstNumber
+    }
+    if(firstNumber !== "" && secondNumber !== ""){
+      screen.textContent = secondNumber + mark + firstNumber
+    }
+
+percent = true}
+
   })
