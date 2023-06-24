@@ -70,7 +70,9 @@ document
 document
   .querySelector(".calculator__btn--remove")
   .addEventListener("click", () => {
+  firstNumber = firstNumber + ""
     firstNumber = [...firstNumber]
+    
     index = firstNumber.length - 1
     firstNumber.splice(index, 1)
 firstNumber = firstNumber.join("")
@@ -85,3 +87,18 @@ if(screen.textContent === ""){
   flag = true
 }
   });
+
+
+  document.querySelector(".calculator__btn--switch").addEventListener("click",()=>{
+    if(secondNumber !== "" && firstNumber === ""){
+      return
+    } else {
+      firstNumber = -firstNumber
+    }
+    if(firstNumber !== ""){
+      screen.textContent = firstNumber
+    }
+    if(firstNumber !== "" && secondNumber !== ""){
+      screen.textContent = secondNumber + mark + firstNumber
+    }
+  })
