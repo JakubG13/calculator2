@@ -134,3 +134,25 @@ if(percent === false)
 percent = true}
 
   })
+
+
+
+//   if(firstNumber.indexOf("%") !== -1 || secondNumber.indexOf("%") !== -1)
+//   { firstNumber = [...firstNumber]
+//  let  firstNumberIndex = firstNumber.indexOf("%")
+//  firstNumber.splice(firstNumberIndex, 1)
+//  firstNumber = firstNumber.join("")
+ 
+//  secondNumber = [...secondNumber]
+//  let  secondNumberIndex = secondNumber.indexOf("%")
+//  secondNumber.splice(secondNumberIndex, 1)
+//  secondNumber = secondNumber.join("")}
+ 
+ 
+//    if (percent === true && (mark === "+" || mark === "-")) {
+//      multiplier = firstNumber / 100;
+//      firstNumber = multiplier * secondNumber;
+//    } else if (percent === true && (mark === "/" || mark === "*")) {
+//      multiplier = firstNumber / 100;
+//      firstNumber = multiplier;
+//    }
