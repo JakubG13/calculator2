@@ -39,6 +39,7 @@ markBtns.forEach((btn) =>
 );
 
 const count = () => {
+  if (firstNumber !== "" && secondNumber !== ""){
   if (mark === "+") {
     screen.textContent = secondNumber * 1 + firstNumber * 1;
   } else if (mark === "-") {
@@ -47,7 +48,9 @@ const count = () => {
     screen.textContent = ((secondNumber * 1) / firstNumber) * 1;
   } else if (mark === "*") {
     screen.textContent = secondNumber * 1 * firstNumber * 1;
-  }
+  }}
+  firstNumber = screen.textContent
+  secondNumber = ""
 };
 
 document
@@ -67,7 +70,18 @@ document
 document
   .querySelector(".calculator__btn--remove")
   .addEventListener("click", () => {
-    let text = screen.textContent;
-    text = text.substring(0, text.length - 1);
-    screen.textContent = text;
+    firstNumber = [...firstNumber]
+    index = firstNumber.length - 1
+    firstNumber.splice(index, 1)
+firstNumber = firstNumber.join("")
+screen.textContent = ""
+if (secondNumber) {
+  screen.textContent += secondNumber;
+  screen.textContent += mark;
+}
+screen.textContent += firstNumber;
+if(screen.textContent === ""){
+  screen.textContent = 0
+  flag = true
+}
   });
