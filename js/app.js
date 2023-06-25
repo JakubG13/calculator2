@@ -44,9 +44,25 @@ markBtns.forEach((btn) =>
     }
   })
 );
+const removePercentFromNumbers = ()=>{
+    
+  if(firstNumber.indexOf("%") !== -1)
+  { firstNumber = [...firstNumber]
+ let  firstNumberIndex = firstNumber.indexOf("%")
+ firstNumber.splice(firstNumberIndex, 1)
+ firstNumber = firstNumber.join("")}
+ else if (secondNumber.indexOf("%") !== -1)
+ {
+ secondNumber = [...secondNumber]
+ let  secondNumberIndex = secondNumber.indexOf("%")
+ secondNumber.splice(secondNumberIndex, 1)
+ secondNumber = secondNumber.join("")}
+ console.log(firstNumber, secondNumber)}
+
 
 const count = () => {
-  percent = false
+  removePercentFromNumbers()
+  
   if (firstNumber !== "" && secondNumber !== ""){
   if (mark === "+") {
     screen.textContent = secondNumber * 1 + firstNumber * 1;
@@ -59,6 +75,7 @@ const count = () => {
   }}
   firstNumber = screen.textContent
   secondNumber = ""
+  percent = false
 };
 
 document
@@ -135,18 +152,8 @@ percent = true}
 
   })
 
-
-
-//   if(firstNumber.indexOf("%") !== -1 || secondNumber.indexOf("%") !== -1)
-//   { firstNumber = [...firstNumber]
-//  let  firstNumberIndex = firstNumber.indexOf("%")
-//  firstNumber.splice(firstNumberIndex, 1)
-//  firstNumber = firstNumber.join("")
- 
-//  secondNumber = [...secondNumber]
-//  let  secondNumberIndex = secondNumber.indexOf("%")
-//  secondNumber.splice(secondNumberIndex, 1)
-//  secondNumber = secondNumber.join("")}
+  
+  
  
  
 //    if (percent === true && (mark === "+" || mark === "-")) {
