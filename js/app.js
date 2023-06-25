@@ -25,22 +25,24 @@ numberBtns.forEach((btn) =>
 
 markBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
-    anotherFlag = false;
-    if (firstNumber !== "" && secondNumber !== "") {
-      count();
-      mark = btn.textContent;
-      firstNumber = screen.textContent;
-      screen.textContent += mark;
-      secondNumber = firstNumber;
-      firstNumber = "";
-    } else if (firstNumber !== "") {
-      mark = btn.textContent;
-      screen.textContent = firstNumber + mark;
-      secondNumber = firstNumber;
-      firstNumber = "";
-    } else {
-      mark = btn.textContent;
-      screen.textContent = secondNumber + mark;
+    if (firstNumber !== "") {
+      anotherFlag = false;
+      if (firstNumber !== "" && secondNumber !== "") {
+        count();
+        mark = btn.textContent;
+        firstNumber = screen.textContent;
+        screen.textContent += mark;
+        secondNumber = firstNumber;
+        firstNumber = "";
+      } else if (firstNumber !== "") {
+        mark = btn.textContent;
+        screen.textContent = firstNumber + mark;
+        secondNumber = firstNumber;
+        firstNumber = "";
+      } else {
+        mark = btn.textContent;
+        screen.textContent = secondNumber + mark;
+      }
     }
   })
 );
