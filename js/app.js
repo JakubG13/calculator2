@@ -81,6 +81,22 @@ const count = () => {
         screen.textContent =
           ((secondNumber * 1) / 100) * (firstNumber * 1) - firstNumber * 1;
       }
+    } else if (percent === true && mark === "*") {
+      if (firstNumber.indexOf("%") !== -1) {
+        removePercentFromNumbers();
+        screen.textContent = ((firstNumber * 1) / 100) * secondNumber;
+      } else if (secondNumber.indexOf("%") !== -1) {
+        removePercentFromNumbers();
+        screen.textContent = ((secondNumber * 1) / 100) * firstNumber;
+      }
+    } else if (percent === true && mark === "/") {
+      if (firstNumber.indexOf("%") !== -1) {
+        removePercentFromNumbers();
+        screen.textContent = (secondNumber * 1) / ((firstNumber * 1) / 100);
+      } else if (secondNumber.indexOf("%") !== -1) {
+        removePercentFromNumbers();
+        screen.textContent = (secondNumber * 1) / 100 / (firstNumber * 1);
+      }
     } else if (mark === "+") {
       screen.textContent = secondNumber * 1 + firstNumber * 1;
     } else if (mark === "-") {
