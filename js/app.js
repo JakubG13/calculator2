@@ -56,7 +56,6 @@ const removePercentFromNumbers = () => {
     secondNumber.splice(secondNumberIndex, 1);
     secondNumber = secondNumber.join("");
   }
-  console.log(firstNumber, secondNumber);
 };
 
 const count = () => {
