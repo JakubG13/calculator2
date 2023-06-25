@@ -60,6 +60,7 @@ const removePercentFromNumbers = () => {
 
 const count = () => {
   if (firstNumber !== "" && secondNumber !== "") {
+    firstNumber = firstNumber + "";
     if (percent === true && mark === "+") {
       if (firstNumber.indexOf("%") !== -1) {
         removePercentFromNumbers();
@@ -156,16 +157,19 @@ document
 document
   .querySelector(".calculator__btn--switch")
   .addEventListener("click", () => {
-    if (secondNumber !== "" && firstNumber === "") {
-      return;
-    } else {
-      firstNumber = -firstNumber;
-    }
-    if (firstNumber !== "") {
-      screen.textContent = firstNumber;
-    }
-    if (firstNumber !== "" && secondNumber !== "") {
-      screen.textContent = secondNumber + mark + firstNumber;
+    firstNumber = firstNumber + "";
+    if (firstNumber.indexOf("%") === -1) {
+      if (secondNumber !== "" && firstNumber === "") {
+        return;
+      } else {
+        firstNumber = -firstNumber;
+      }
+      if (firstNumber !== "") {
+        screen.textContent = firstNumber;
+      }
+      if (firstNumber !== "" && secondNumber !== "") {
+        screen.textContent = secondNumber + mark + firstNumber;
+      }
     }
   });
 
@@ -173,7 +177,7 @@ document
   .querySelector(".calculator__btn--percent")
   .addEventListener("click", () => {
     anotherFlag = true;
-    if (percent === false) {
+    if (percent === false && firstNumber > 0) {
       firstNumber += "%";
       if (firstNumber !== "") {
         screen.textContent = firstNumber;
