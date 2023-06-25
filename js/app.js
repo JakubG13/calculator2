@@ -61,10 +61,14 @@ const removePercentFromNumbers = ()=>{
 
 
 const count = () => {
-  removePercentFromNumbers()
-  
   if (firstNumber !== "" && secondNumber !== ""){
-  if (mark === "+") {
+    removePercentFromNumbers()
+
+if(mark === "+" || mark === "-" && percent){
+}
+else if(mark === "*" || mark === "/" && percent){
+}
+  else if (mark === "+") {
     screen.textContent = secondNumber * 1 + firstNumber * 1;
   } else if (mark === "-") {
     screen.textContent = secondNumber * 1 - firstNumber * 1;
@@ -72,10 +76,12 @@ const count = () => {
     screen.textContent = ((secondNumber * 1) / firstNumber) * 1;
   } else if (mark === "*") {
     screen.textContent = secondNumber * 1 * firstNumber * 1;
-  }}
+  }
   firstNumber = screen.textContent
   secondNumber = ""
   percent = false
+}
+  
 };
 
 document
