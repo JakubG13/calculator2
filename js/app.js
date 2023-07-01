@@ -1,6 +1,7 @@
 const numberBtns = document.querySelectorAll(".calculator__btn--number");
 const markBtns = document.querySelectorAll(".calculator__btn--mark");
 const screen = document.querySelector(".screen__text");
+
 let flag = true;
 let firstNumber = "";
 let secondNumber = "";
@@ -8,8 +9,36 @@ let mark = "";
 let percent = false;
 let text = screen.textContent;
 let anotherFlag = true;
+const checkLength = ()=>{
+  if(screen.textContent.length === 16){
+    screen.style.fontSize = "2.3rem"
+  }
+  else if(screen.textContent.length === 15){
+    screen.style.fontSize = "2.5rem"
+  }
+  else if(screen.textContent.length === 14){
+    screen.style.fontSize = "2.7rem"
+  }
+  else if(screen.textContent.length === 13){
+    screen.style.fontSize = "2.9rem"
+  }
+  else if(screen.textContent.length === 12){
+    screen.style.fontSize = "3.1rem"
+  }
+  else if(screen.textContent.length === 11){
+    screen.style.fontSize = "3.4rem"
+  }
+  else if(screen.textContent.length === 10){
+    screen.style.fontSize = "3.7rem"
+  } else if (screen.textContent.length < 10){
+    screen.style.fontSize = "4rem"
+
+  }
+}
+
 numberBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
+checkLength()
     if (firstNumber !== "" && percent === true && anotherFlag) {
       return;
     } else {
@@ -121,6 +150,7 @@ document
 document
   .querySelector(".calculator__btn--clear")
   .addEventListener("click", () => {
+    
     flag = true;
     firstNumber = "";
     secondNumber = "";
@@ -128,11 +158,13 @@ document
     screen.textContent = 0;
     percent = false;
     anotherFlag = true;
+    checkLength()
   });
 
 document
   .querySelector(".calculator__btn--remove")
   .addEventListener("click", () => {
+    checkLength()
     firstNumber = firstNumber + "";
     firstNumber = [...firstNumber];
 
