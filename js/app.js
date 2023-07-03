@@ -10,25 +10,25 @@ let percent = false;
 let text = screen.textContent;
 let anotherFlag = true;
 const checkLength = ()=>{
-  if(screen.textContent.length === 16){
+  if(screen.textContent.length >= 16){
     screen.style.fontSize = "2.3rem"
   }
-  else if(screen.textContent.length === 15){
+  else if(screen.textContent.length >= 15){
     screen.style.fontSize = "2.5rem"
   }
-  else if(screen.textContent.length === 14){
+  else if(screen.textContent.length >= 14){
     screen.style.fontSize = "2.7rem"
   }
-  else if(screen.textContent.length === 13){
+  else if(screen.textContent.length >= 13){
     screen.style.fontSize = "2.9rem"
   }
-  else if(screen.textContent.length === 12){
+  else if(screen.textContent.length >= 12){
     screen.style.fontSize = "3.1rem"
   }
-  else if(screen.textContent.length === 11){
+  else if(screen.textContent.length >= 11){
     screen.style.fontSize = "3.4rem"
   }
-  else if(screen.textContent.length === 10){
+  else if(screen.textContent.length >= 10){
     screen.style.fontSize = "3.7rem"
   } else if (screen.textContent.length < 10){
     screen.style.fontSize = "4rem"
